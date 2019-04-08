@@ -1,0 +1,42 @@
+{% extends "mainapp/head.html"%}
+
+<body>
+{% block content %}
+
+<div class='row'>
+  {% for n in News%}
+	
+  <div class="col s12 m7 l12">
+
+    <h3 class="header">{{ n.title }}</h3>
+
+    <div class="card horizontal" height="200">
+
+      <div class="card-image">
+        {% if n.image%}
+          <img src="{{n.image.url}}">
+        {%endif%}
+      </div>
+
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>{{ n.text|safe|truncatewords:26}}...</p>
+        </div>
+
+        <div class="card-action">
+          <a href="/articul{{n.pk}}">Read more</a>
+        </div>
+
+      </div>
+
+      </div>
+
+  </div>
+
+  {% endfor %}
+</div>
+
+{%endblock%}
+{#<div class="sunny"></div>#}
+
+</body>

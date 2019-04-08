@@ -1,0 +1,17 @@
+{% extends "mainapp/head.html"%}
+<body>
+{% block content %}
+
+	<div class="col s12 l12">
+
+		<div class="center-align card vertical">
+			<h3 class="header">{{ n.title }}</h3>
+
+			<div class="left-align card-content">
+				{{n.text|safe}}
+			</div>
+		</div>
+	</div>
+
+{%endblock%}
+</body>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+{% load static %}
+<link rel="stylesheet" href="{% static '/tinymce/css/prism.css' %}">
+<script src="{% static '/tinymce/js/prism.js' %}"></script>
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+<br>
+  <nav class="curved purple darken-4">
+    <div class="nav-wrapper">
+        
+      <a href="" class="brand-logo">  АстроNews</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/">Main Page</a></li>
+        <li><a href="/category">Category</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="/logout">logout</a></li>
+        {% else %}
+        <li><a href="/register">Register</a></li>
+        <li><a href="/login">login</a></li>
+        {% endif %}
+        <li><a href="/admin">admin</a></li>
+
+      </ul>
+    </div>
+  </nav>
+{% include "includes/messaging.html" %}
+    {% block content %}
+    {%endblock%}
+
+</div>
+</body>
+</html>
