@@ -1,17 +1,22 @@
 {% extends "mainapp/head.html"%}
 <body>
 {% block content %}
-
+	{% for n in Inf%}
 	<div class="col s12 l12">
 
 		<div class="center-align card vertical">
-			<h3 class="header">{{ n.title }}</h3>
+			<h2 class="header">{{ n.title }}</h2>
+			<br>
+		</div>
 
+		<div class="center-align card vertical">
 			<div class="left-align card-content">
 				{{n.text|safe}}
 			</div>
 		</div>
+
 	</div>
+	{% endfor %}
 
 {%endblock%}
 </body>

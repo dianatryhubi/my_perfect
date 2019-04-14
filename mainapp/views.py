@@ -19,8 +19,18 @@ def separator(request, url_sl):
 	for posts in categor_urls:
 		if url_sl == posts:
 			return render(request, 
-					"mainapp/home.html",
-					{'News':Information.objects.filter(news_catagory__urls_slung_category=url_sl)})
+					"mainapp/list_of.html",
+					{'Articuls':Information.objects.filter(news_catagory__urls_slung_category=url_sl)},
+					  )
+	try:
+		return render(request, 
+					"mainapp/articul.html",
+					{'Inf':Information.objects.filter(urls_slung_inf=url_sl)},
+					)
+	except:
+			return HttpResponse("<h1>Error</h1>")
+
+
 
 
 def show_register(request):
@@ -64,18 +74,17 @@ def login_(request):
 	return render(request, 'mainapp/login.html', {"form":form})
 
 
-def show_articul(request, id_):
-	n = Blog_news.objects.get(pk=id_) 
-	return render(request, 'mainapp/articul.html', {"n":n})
+def show_articul(request, url_sl):
+	try:
+		return render(request, 
+					"mainapp/articul.html",
+					{'Inf':Blog_news.objects.objects.filter(urls_slung_inf=url_sl)},
+					)
+	except:
+			return HttpResponse("<h1>Error</h1>")
 
 
 
-def show_contact(request):
-	return HttpResponse("""<h1>Contacts </h1>
-							Mob: +38096...""")
-
-
-
-def show_information(request, arg):
-	return HttpResponse("""<h1>Hello everyone</h1>
-							My name is %s """%arg)
+#def show_contact(request):
+#	return HttpResponse("""<h1>Contacts </h1>
+#							Mob: +38096...""")

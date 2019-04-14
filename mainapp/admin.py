@@ -4,7 +4,7 @@ from tinymce.widgets import TinyMCE
 from django.db import models
 
 class Blog_newsAdmin(admin.ModelAdmin):
-	fields=('title', 'publieshed_date', 'text', 'image',)
+	fields=('title', 'publieshed_date', 'text', 'image', 'urls_slung')
 
 	formfield_overrides = {
 			models.TextField: {'widget': TinyMCE(),},
