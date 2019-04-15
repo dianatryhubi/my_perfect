@@ -31,7 +31,14 @@ def separator(request, url_sl):
 			return HttpResponse("<h1>Error</h1>")
 
 
-
+def show_articul(request, url_sl):
+	try:
+		return render(request, 
+					"mainapp/articul.html",
+					{'Inf':Blog_news.objects.filter(urls_slung=url_sl)},
+					)
+	except:
+			return HttpResponse("<h1>Error</h1>")
 
 def show_register(request):
 	if request.method=="POST":
@@ -74,14 +81,7 @@ def login_(request):
 	return render(request, 'mainapp/login.html', {"form":form})
 
 
-def show_articul(request, url_sl):
-	try:
-		return render(request, 
-					"mainapp/articul.html",
-					{'Inf':Blog_news.objects.objects.filter(urls_slung_inf=url_sl)},
-					)
-	except:
-			return HttpResponse("<h1>Error</h1>")
+
 
 
 

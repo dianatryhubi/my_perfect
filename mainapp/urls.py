@@ -26,6 +26,6 @@ urlpatterns = [
     path("login/", views.login_),
     path("category/", views.show_categories),
     path("category/<url_sl>", views.separator),
-    path("<url_sl>", views.show_articul),
+    path("<url_sl>/", views.show_articul),
 ]
     
